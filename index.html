@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/b65018c277.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="browser">
+        <p class="browser-alert">Please change your browser, The application doesn't support Safari.</p>
+    </div>
+    <div class="subApp">
+        <header class="subApp__header">
+            <div class="header-logo">
+                <i class="fa-solid fa-coins header-logo__img"></i>
+                <p class="header-logo__text">suBs</p>
+            </div>
+            <div class="header-menu">
+                <ul class="header-menu__item-list">
+                    <li class="header-menu__item header-menu__item-dashboard">Dashboard</li>
+                    <li class="header-menu__item header-menu__item-addSub">Add subscription</li>
+                </ul>
+            </div>
+        </header>
+        <main class="subApp__main">
+            <div class="cardWrapper">
+                <section class="main__addedSubs">
+                    <h3 class="addedSubs-main-header">Subscription <i class="fa-solid fa-money-check main-header-icon"></i></h3>
+                </section>
+                <section class="main__addSubs">
+                    <form action="" class="addSubs-form">
+                        <input type="text" class="addSubs-form-name" placeholder="name..." maxlength="8">
+                        <input type="text" class="addSubs-form-cost" placeholder="cost..." maxlength="3"   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <select class="addSubs-form-currency">
+                            <option value="pln">PLN</option>
+                            <option value="usd">USD</option>
+                            <option value="eur">EUR</option>
+                            <option value="gbp">GBP</option>
+                        </select>
+                        <div class="addSubs-form-calendar">
+                            <p class="addSubs-form-calendar-text">date...</p>
+                            <i class="fa-regular fa-calendar-plus addSubs-form-calendar-icon"></i>
+                        </div>
+                        <button class="addSubs-form-submit" type="submit">Add</button>
+                        <label class="addSubs-form-alert"></label>
+                        <div class="addSubs-form-calendarApp">
+                            <div class="calendarApp__header">
+                                <h3 class="calendarApp__header-month"></h3>
+                                <h3 class="calendarApp__header-year"></h3>
+                                <button class="calendarApp__header-button calendarApp__header-button-left">
+                                    <i class="fa-sharp fa-solid fa-angle-left"></i>
+                                </button>
+                                <button class="calendarApp__header-button calendarApp__header-button-right">
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </button>
+                            </div>
+                            <div class="calendarApp__table"></div>
+                            <button class="calendarApp__cancelBtn">
+                                <i class="fa-solid fa-xmark calendarApp__cancelBtn-icon"></i>
+                            </button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="dist/app.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,748 @@
+@use './scss/colors' as *;
+@use './scss/mixin' as *;
+@use  './scss/fonts' as *;
+
+*{
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.browser{
+    display: none;
+    background-color: $browser;
+    height: 100vh;
+    place-items: center;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    &-alert{
+        color: $browser-text;
+        font-size: 3vw;
+    }
+}
+
+.subApp{
+    height: 100vh;
+    position: relative;
+    width: 100vw;
+    &__header{
+        background-color: $header-background;
+        display: flex;
+        padding: 2vw 0;
+        z-index: 100;
+        @media screen and(max-width: 1400px){
+            padding: 2.5vw 0;
+        }
+        @media screen and(max-width: 1000px){
+            padding: 3vw 0;
+        }
+        @media screen and(max-width: 800px){
+            padding: 3.5vw 0;
+        }
+        @media screen and(max-width: 600px){
+            padding: 4vw 0;
+        }
+        @media screen and(max-width: 500px){
+            padding: 6vw 0;
+            flex-wrap: wrap;
+        }
+        .header-logo{
+            align-items: center;
+            display: flex;
+            margin-left: 5vw;
+            gap: 1.5vw;
+            justify-content: center;
+            @media screen and(max-width: 500px){
+                width: 100%;
+                margin-bottom: 6vw;
+            }
+            &__img{
+                color: $header-logo-color;
+                font-size: 2vw;
+                @media screen and(max-width: 1400px){
+                    font-size: 3vw;
+                }
+                @media screen and(max-width: 1000px){
+                    font-size: 4vw;
+                }
+                @media screen and(max-width: 800px){
+                    font-size: 4.5vw;
+                }
+                @media screen and(max-width: 600px){
+                    font-size: 5vw;
+                }
+                @media screen and(max-width: 500px){
+                    font-size: 6vw;
+                }
+            }
+            &__text{
+                border-radius: 1vw;
+                color: $header-logo-text;
+                font-family: $header-font;
+                font-size: 1.7vw;
+                font-weight: 900;
+                pointer-events: none;
+                @media screen and(max-width: 1400px){
+                    font-size: 2.5vw;
+                }
+                @media screen and(max-width: 1000px){
+                    font-size: 3.5vw;
+                }
+                @media screen and(max-width: 800px){
+                    font-size: 4vw;
+                }
+                @media screen and(max-width: 600px){
+                    font-size: 4.5vw;
+                }
+                @media screen and(max-width: 500px){
+                    font-size: 5.5vw;
+                }
+            }
+        }
+        .header-menu{
+            align-self: flex-end;
+            display: flex;
+            flex-grow: 1;
+            justify-content: flex-end;
+            margin-right: 5vw;
+            @media screen and(max-width: 500px){
+                width: 100%;
+                margin-right: 0;
+            }
+            &__item-list{
+                display: flex;
+                justify-content: space-between;
+                @media screen and(max-width: 500px){
+                    width: 100%;
+                    justify-content: space-around;
+                }
+                .header-menu__item{
+                    color: $header-menu-color;
+                    font-family: $header-font;
+                    font-size: 1.1vw;
+                    letter-spacing: 1.5px;
+                    transition: color .3s;
+                    padding: 0.5vw 2.5vw;
+                    @media screen and(max-width: 1400px){
+                        font-size: 1.6vw;
+                    }
+                    @media screen and(max-width: 1000px){
+                        font-size: 2.1vw;
+                    }
+                    @media screen and(max-width: 800px){
+                        font-size: 2.35vw;
+                    }
+                    @media screen and(max-width: 600px){
+                        font-size: 2.6vw;
+                    }
+                    @media screen and(max-width: 500px){
+                        font-size: 4.1vw;
+                    }
+                    &:nth-last-child(1){
+                        border-radius: 0.5vw;
+                        color: $header-menu-color;
+                        outline: 2px solid $header-menu-color;
+                    }
+                    &:hover{
+                        color: $header-hover-color;
+                        cursor: pointer;
+                    }
+                    &:hover:nth-last-child(1){
+                        outline: 3px solid $header-hover-color
+                    }
+                }
+            }
+        }
+    }
+    &__main{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: transparent;
+        perspective: 1000px;
+        width: 50%;
+        height: 26vw;
+        @media screen and(max-width: 1400px){
+            width: 60%;
+            height: 30vw;
+        }
+        @media screen and(max-width: 1000px){
+            width: 65%;
+            height: 35vw;
+        }
+        @media screen and(max-width: 800px){
+            width: 70%;
+            height: 40vw;
+        }
+        @media screen and(max-width: 600px){
+            width: 90%;
+            height: 60vw;
+        }
+        @media screen and(max-width: 500px){
+            width: 90%;
+            height: 90vw;
+        }
+        @media screen and(max-height: 550px){
+            top: 60%;
+        }
+        .cardWrapper{
+            background-color: $main-backGround-color;
+            border-radius: 1vw;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .main__addedSubs{
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 1.5vw;
+            height: calc(100% - 4vw);
+            left: 50%;
+            margin-top: 2vw;
+            overflow-y: scroll;
+            position: absolute;
+            top: 0;
+            transform: translateX(-50%);
+            width: calc(100% - 4vw);
+            .addedSubs-main-header{
+                color: $main-header-color;
+                font-family: $main-font;
+                font-size: 1.8vw;
+                font-weight: 900;
+                letter-spacing: 1px;
+                margin-bottom: 1vw;
+                text-align: center;
+                @media screen and(max-width: 1400px){
+                    font-size: 2.3vw;
+                }
+                @media screen and(max-width: 1000px){
+                    font-size: 2.8vw;
+                }
+                @media screen and(max-width: 800px){
+                    font-size: 3.3vw;
+                    margin-bottom: 2vw;
+                }
+                @media screen and(max-width: 600px){
+                    font-size: 3.8vw;
+                    margin-bottom: 3vw;
+                }
+                @media screen and(max-width: 500px){
+                    font-size: 5vw;
+                    margin-bottom: 5vw;
+                }
+                &-icon{
+                    margin-left: 1vw;
+                }
+            }
+            .addedSubs{
+                background-color: $main-backGround-color-sub;
+                border-radius: 0.75vw;
+                display: flex;
+                gap: 0.7vw;
+                margin: 0.5vw 1vw;
+                padding: 0.5vw 1vw;
+                @media screen and(max-width: 500px){
+                    flex-wrap: wrap;
+                }
+                &-subName, &-subPeriod, &-subCost{
+                    @include addedSubstription();
+                }
+                &-subName{
+                    flex-grow: 1;
+                    font-size: 1.2vw;
+                    font-weight: 700;
+                    @media screen and(max-width: 1400px){
+                        font-size: 1.8vw;
+                    }
+                    @media screen and(max-width: 1000px){
+                        font-size: 2.4vw;
+                    }
+                    @media screen and(max-width: 800px){
+                        font-size: 2.9vw;
+                    }
+                    @media screen and(max-width: 600px){
+                        font-size: 3.4vw;
+                    }
+                    @media screen and(max-width: 500px){
+                        font-size: 5.5vw;
+                        text-align: center;
+                        width: 100%;
+                    }
+
+                }
+                &-subPeriod, &-subCost{
+                    font-size: 1vw;
+                    font-weight: 900;
+                    font-style: italic;
+                    @media screen and(max-width: 1400px){
+                        font-size: 1.3vw;
+                    }
+                    @media screen and(max-width: 1000px){
+                        font-size: 1.6vw;
+                    }
+                    @media screen and(max-width: 800px){
+                        font-size: 1.9vw;
+                    }
+                    @media screen and(max-width: 600px){
+                        font-size: 2.2vw;
+                    }
+                    @media screen and(max-width: 500px){
+                        font-size: 4vw;
+                    }
+                }
+                &-subPeriod{
+                    @media screen and(max-width: 500px){
+                        width: 65%;
+                    }
+                }
+                &-subCost{
+                        @media screen and(max-width: 500px){
+                            width: 20%;        
+                    }
+                }
+                &-deleteBtn, &-editBtn{
+                    @include addedButton();
+                    @media screen and(max-width: 1400px){
+                        font-size: 1.3vw;
+                    }
+                    @media screen and(max-width: 1000px){
+                        font-size: 1.6vw;
+                    }
+                    @media screen and(max-width: 800px){
+                        font-size: 1.9vw;
+                    }
+                    @media screen and(max-width: 600px){
+                        font-size: 2.2vw;
+                    }
+                    @media screen and(max-width: 500px){
+                        font-size: 4vw;
+                        width: 5vw;
+                        text-align: right;
+                    }
+                }
+                &-deleteBtn{
+                    margin-left: 2vw;
+                    @media screen and(max-width: 500px){
+                        margin-left: 0;
+                    }
+                }
+                &-deleteBtn:hover, &-editBtn:hover{
+                    color: $main-header-color;
+                    cursor: pointer;
+                }
+            }
+        }
+        .main__addSubs{
+            border-radius: 1vw;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            background-color: $main-backGround-color;
+            padding: 2vw;
+            height: calc(100%);
+            left: 0;
+            position: absolute;
+            transform: rotateX(180deg);
+            width: 100%;
+            .addSubs-form{
+                column-gap: 2vw;
+                display: grid;
+                grid-template: repeat(3, min-content) / repeat(5, 1fr);
+                height: 100%;
+                overflow: hidden;
+                row-gap: 1vw;
+                padding: 1vw;
+                position: relative;
+                @media screen and(max-width: 500px){
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(5, min-content); 
+                }
+                &-name{
+                    font-size: 1.4vw;
+                    grid-area: 1 / 1 / 2 / 6;
+                    margin-top: 0.5vw;
+                    @media screen and(max-width: 1400px){
+                        font-size: 1.8vw;
+                    }
+                    @media screen and(max-width: 1000px){
+                        font-size: 2.2vw;
+                    }
+                    @media screen and(max-width: 800px){
+                        font-size: 2.6vw;
+                    }
+                    @media screen and(max-width: 600px){
+                        font-size: 3.8vw;
+                    }
+                    @media screen and(max-width: 500px){
+                        font-size: 5vw;
+                        grid-area: 1 / 1 / 2 / 2;
+                    }
+                }
+                &-cost{
+                    width: 100%;
+                    font-size: 1.2vw;
+                    grid-area: 2 / 1 / 3 / 2;
+                    @media screen and(max-width: 1400px){
+                        font-size: 1.4vw;
+                    }
+                    @media screen and(max-width: 1000px){
+                        font-size: 1.8vw;
+                    }
+                    @media screen and(max-width: 800px){
+                        font-size: 2.2vw;
+                    }
+                    @media screen and(max-width: 600px){
+                        font-size: 3.4vw;
+                    }
+                    @media screen and(max-width: 500px){
+                        font-size: 4vw;
+                        grid-area: 2 / 1 / 3 / 2;
+                        margin-top: 3vw;
+                    }
+                }
+                &-currency{
+                    font-size: 1.2vw;
+                    grid-area: 2 / 2 / 3 / 3;
+                    @media screen and(max-width: 1400px){
+                        font-size: 1.4vw;
+                    }
+                    @media screen and(max-width: 1000px){
+                        font-size: 1.8vw;
+                    }
+                    @media screen and(max-width: 800px){
+                        font-size: 2.2vw;
+                    }
+                    @media screen and(max-width: 600px){
+                        font-size: 3.4vw;
+                    }
+                    @media screen and(max-width: 500px){
+                        font-size: 4vw;
+                        grid-area: 3 / 1 / 4 / 2;
+                        margin-top: 3vw;
+                    }
+                }
+                &-calendar{
+                    align-self: center;
+                    display: flex;
+                    grid-area: 2 / 3 / 3 / 6;
+                    justify-content: space-between;
+                    @media screen and(max-width: 500px){
+                        grid-area: 4 / 1 / 5 / 2;
+                        margin-top: 3vw;
+                    }
+                    &-text{
+                        align-self: center;
+                        color: $placeholder-color;
+                        font-family: $main-font;
+                        font-weight: 300;
+                        font-size: 1.2vw;
+                        @media screen and(max-width: 1400px){
+                            font-size: 1.4vw;
+                        }
+                        @media screen and(max-width: 1000px){
+                            font-size: 1.8vw;
+                        }
+                        @media screen and(max-width: 800px){
+                            font-size: 2.2vw;
+                        }
+                        @media screen and(max-width: 600px){
+                            font-size: 3.4vw;
+                        }
+                        @media screen and(max-width: 500px){
+                            font-size: 4vw;
+                        }
+                    }
+                    &-icon{
+                        color: $placeholder-color;
+                        font-size: 1.2vw;
+                        transition: .3s;
+                        @media screen and(max-width: 1400px){
+                            font-size: 1.4vw;
+                        }
+                        @media screen and(max-width: 1000px){
+                            font-size: 1.8vw;
+                        }
+                        @media screen and(max-width: 800px){
+                            font-size: 2.2vw;
+                        }
+                        @media screen and(max-width: 600px){
+                            font-size: 3.4vw;
+                        }
+                        @media screen and(max-width: 500px){
+                            font-size: 4vw;
+                        }
+                        &:hover{
+                            color: rgb(48, 48, 48);
+                            cursor: pointer;
+                        }
+                    }
+                }
+                &-submit{
+                    font-size: 1vw;
+                    grid-area: 3 / 1 / 4 / 6;
+                    margin-top: 3vw;
+                    @media screen and(max-width: 1400px){
+                        margin-top: 4vw;
+                        font-size: 1.2vw;
+                    }
+                    @media screen and(max-width: 1000px){
+                        margin-top: 5vw;
+                        font-size: 1.6vw;
+                    }
+                    @media screen and(max-width: 800px){
+                        margin-top: 5.5vw;
+                        font-size: 2vw;
+                    }
+                    @media screen and(max-width: 600px){
+                        margin-top: 12vw;
+                        font-size: 3vw;
+                    }
+                    @media screen and(max-width: 500px){
+                        margin-top: 15vw;
+                        font-size: 3.5vw;
+                        grid-area: 5 / 1 / 6 / 2;
+                    }
+                }
+
+                &-alert{
+                    bottom: 0;
+                    font-family: $main-font;
+                    font-weight: 400;
+                    letter-spacing: 1px;
+                    opacity: 0;
+                    padding: 0.5vw 0;
+                    position: absolute;
+                    transition: .3s;
+                    text-align: center;
+                    width: calc(100% - 2vw);
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                &-name, &-cost, &-calendar, &-submit, &-currency{
+                    background-color: $main-backGround-color-input;
+                    border: 2px solid transparent;
+                    border-radius: 0.5vw;
+                    color: $main-header-color;
+                    font-family: $main-font;
+                    font-weight: 700;
+                    padding: 0.7vw;
+                    transition: .2s;
+                    @media screen and (max-width: 500px){
+                        padding: 2vw;
+                        border-radius: 1.5vw;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                    }
+                    &:focus{
+                        outline: none;
+                        border: 2px solid $header-logo-text         ;
+                    }
+                    &::placeholder{
+                        color: $placeholder-color;
+                        font-family: $main-font;
+                        font-weight: 300;
+                        opacity: 1;
+                    }
+                }
+
+                &-calendarApp{
+                    background-color: $header-logo-text;
+                    border-radius: 0.5vw;
+                    height: 100%;
+                    left: -100%;
+                    position: absolute;
+                    transition: .3s;
+                    width: 100%;
+                    .calendarApp__header{
+                        width: 90%;
+                        height: 20%;
+                        border-bottom: 1px solid #fff;
+                        margin: 0 auto;
+                        position: relative;
+                        &-month{
+                            margin-top: 0.7vw;
+                            font-size: 1.4vw;
+                            @media screen and(max-width: 1400px){
+                                font-size: 2vw;
+                            }
+                            @media screen and(max-width: 1000px){
+                                font-size: 2.6vw;
+                            }
+                            @media screen and(max-width: 800px){
+                                font-size: 3vw;
+                            }
+                            @media screen and(max-width: 600px){
+                                font-size: 4vw;
+                            }
+                            @media screen and(max-width: 500px){
+                                margin-top: 4vw;
+                                font-size: 6vw;
+                            }
+                        }
+                        &-year{
+                            font-size: 1vw;
+                            @media screen and(max-width: 1400px){
+                                font-size: 1.4vw;
+                            }
+                            @media screen and(max-width: 1000px){
+                                font-size: 1.8vw;
+                            }
+                            @media screen and(max-width: 800px){
+                                font-size: 2.2vw;
+                            }
+                            @media screen and(max-width: 600px){
+                                font-size: 3.4vw;
+                            }
+                            @media screen and(max-width: 500px){
+                                font-size: 5vw;
+                            }
+                        }
+                        &-month, &-year{
+                            color: $main-backGround-color-input;
+                            font-family: $main-font;
+                            font-weight: 900;
+                            letter-spacing: 1px;
+                            text-align: center;
+                            padding: 0.2vw 0;
+                        }
+                        &-button{
+                            color: $main-backGround-color-input;
+                            background-color: transparent;
+                            border: none;
+                            font-size: 1vw;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            transition: .3s;
+                            padding: 0.5vw 0;
+                            position: absolute;
+                            @media screen and(max-width: 1400px){
+                                font-size: 1.5vw;
+                            }
+                            @media screen and(max-width: 1000px){
+                                font-size: 2vw;
+                            }
+                            @media screen and(max-width: 800px){
+                                font-size: 2.5vw;
+                            }
+                            @media screen and(max-width: 600px){
+                                font-size: 3.4vw;
+                            }
+                            @media screen and(max-width: 500px){
+                                font-size: 6vw;
+                            }
+                        }
+                        &-button:nth-last-child(1){
+                            right: 0;
+                        }
+                        &-button:hover{
+                            cursor: pointer;
+                            scale: 1.1;
+                        }
+                    }
+                    .calendarApp__table{
+                        align-items: center;
+                        display: grid;
+                        grid-template: repeat(6, 1fr)/ repeat(6, 1fr);
+                        height: 75%;
+                        justify-items: center;
+                        margin: 0 auto;
+                        padding: 0.5vw;
+                        width: 90%;
+
+                        .calendarApp__table-day{
+                            background-color: rgba(135,151,177,255);
+                            border-radius: 0.5vw;
+                            color: $header-logo-text;
+                            font-size: 1.3vw;
+                            font-family: $main-font;
+                            font-weight: 900;
+                            height: 2.25vw;
+                            line-height: 2.25vw;
+                            text-align: center;
+                            transition: background-color .3s;
+                            width: 6vw;
+                            @media screen and(max-width: 1400px){
+                                font-size: 1.7vw;
+                                width: 7.5vw;
+                                height: 2.8vw;
+                                line-height: 2.8vw;
+                            }
+                            @media screen and(max-width: 1000px){
+                                font-size: 2.1vw;
+                                width: 8vw;
+                                height: 3.5vw;
+                                line-height: 3.5vw;
+                            }
+                            @media screen and(max-width: 800px){
+                                font-size: 2.5vw;
+                                width: 9vw;
+                                height: 4vw;
+                                line-height: 4vw;
+                            }
+                            @media screen and(max-width: 600px){
+                                font-size: 4vw;
+                                width: 11vw;
+                                height: 6.5vw;
+                                line-height: 6.5vw;
+                            }
+                            @media screen and(max-width: 500px){
+                                font-size: 6vw;
+                                width: 10vw;
+                                height: 9vw;
+                                line-height: 9vw;
+                            }
+                        &:hover{
+                            background-color: white;
+                            cursor: pointer;
+                            }
+                        }
+                    }
+                    .calendarApp__cancelBtn{
+                        position: absolute;
+                        bottom: 1vw;
+                        right: 1vw;
+                        background-color: transparent;
+                        border: none;
+                        .calendarApp__cancelBtn-icon{
+                            color: rgba(135,151,177,255);
+                            font-size: 1.4vw;
+                            transition: color .3s;
+                            @media screen and(max-width: 1400px){
+                                font-size: 1.8vw;
+                            }
+                            @media screen and(max-width: 1000px){
+                                font-size: 2.2vw;
+                            }
+                            @media screen and(max-width: 800px){
+                              font-size: 2.6vw;
+                            }
+                            @media screen and(max-width: 600px){
+                               font-size: 4vw;
+                               bottom: 2vw;
+                               right: 2vw;
+                            }
+                            @media screen and(max-width: 500px){
+                                font-size: 5vw;
+                                bottom: 4vw;
+                                right: 4vw;
+                            }
+                            &:hover{
+                                cursor: pointer;
+                                color: white;
+                            }
+                        }
+                    }
+                }  
+            }
+        }
+    }
+}
+.edit{
+    text-decoration: line-through;
+}
+

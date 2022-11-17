@@ -1,0 +1,17 @@
+@use './fonts' as *;
+@use './colors' as *;
+
+@mixin addedSubstription{
+    align-self: center;
+    font-family: $main-font;
+    letter-spacing: 1.5px;
+    color: $main-header-color;
+}
+@mixin addedButton{
+    background-color: transparent;
+    border: none;
+    color: $placeholder-color;
+    font-size: 1.3rem;
+    padding: 5px 5px;
+    transition: .3s;
+}
