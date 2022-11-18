@@ -19,7 +19,7 @@ export class AddToDashboard{
 
     constructor(){
 
-        this.addedSubsContainer = document.querySelector('.main__addedSubs')
+        this.addedSubsContainer = document.querySelector('.addedSubs-container')
 
         this.submitBtn = document.querySelector('.addSubs-form-submit')
         this.abonamentName = document.querySelector('.addSubs-form-name')

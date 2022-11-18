@@ -266,7 +266,7 @@
   transform: translateX(-50%);
   width: calc(100% - 4vw);
 }
-.subApp__main .main__addedSubs .addedSubs-main-header {
+.subApp__main .main__addedSubs .addedSubs-header {
   color: rgb(12, 49, 76);
   font-family: "Lato", sans-serif;
   font-size: 1.8vw;
@@ -276,34 +276,34 @@
   text-align: center;
 }
 @media screen and (max-width: 1400px) {
-  .subApp__main .main__addedSubs .addedSubs-main-header {
+  .subApp__main .main__addedSubs .addedSubs-header {
     font-size: 2.3vw;
   }
 }
 @media screen and (max-width: 1000px) {
-  .subApp__main .main__addedSubs .addedSubs-main-header {
+  .subApp__main .main__addedSubs .addedSubs-header {
     font-size: 2.8vw;
   }
 }
 @media screen and (max-width: 800px) {
-  .subApp__main .main__addedSubs .addedSubs-main-header {
+  .subApp__main .main__addedSubs .addedSubs-header {
     font-size: 3.3vw;
     margin-bottom: 2vw;
   }
 }
 @media screen and (max-width: 600px) {
-  .subApp__main .main__addedSubs .addedSubs-main-header {
+  .subApp__main .main__addedSubs .addedSubs-header {
     font-size: 3.8vw;
     margin-bottom: 3vw;
   }
 }
 @media screen and (max-width: 500px) {
-  .subApp__main .main__addedSubs .addedSubs-main-header {
+  .subApp__main .main__addedSubs .addedSubs-header {
     font-size: 5vw;
     margin-bottom: 5vw;
   }
 }
-.subApp__main .main__addedSubs .addedSubs-main-header-icon {
+.subApp__main .main__addedSubs .addedSubs-header-icon {
   margin-left: 1vw;
 }
 .subApp__main .main__addedSubs .addedSubs {
